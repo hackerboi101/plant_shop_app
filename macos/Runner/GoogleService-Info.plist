@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1006901437819-kg69g8dkg4lvte7s5bdv50ckenpm1cfn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1006901437819-kg69g8dkg4lvte7s5bdv50ckenpm1cfn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCjetZe2dt-Y9LRv0XzIvz72GD7PklvzrE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1006901437819</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.plantShopApp</string>
+	<key>PROJECT_ID</key>
+	<string>plant-shop-app-3</string>
+	<key>STORAGE_BUCKET</key>
+	<string>plant-shop-app-3.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1006901437819:ios:cb902a24fee34243dc09de</string>
+</dict>
+</plist>
