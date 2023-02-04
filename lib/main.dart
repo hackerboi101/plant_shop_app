@@ -65,20 +65,34 @@ class HomePage extends StatelessWidget {
       body: ListView.builder(
         itemCount: plants.length,
         itemBuilder: (context, index) {
-          return Card(
-            child: ListTile(
-              title: Text(plants[index].name),
-              subtitle: Text(plants[index].description),
-              onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => DescriptionPage(
-                      plant: plants[index],
+          return Padding(
+            padding: const EdgeInsets.only(top: 15, left: 15, right: 15),
+            child: Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              child: ListTile(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(20)),
+                leading: Image.asset(
+                  plants[index].image,
+                  fit: BoxFit.contain,
+                ),
+                title: Text(plants[index].name),
+                subtitle: Text(plants[index].description),
+                tileColor: Colors.green[300],
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => DescriptionPage(
+                        plant: plants[index],
+                      ),
                     ),
-                  ),
-                );
-              },
+                  );
+                },
+                horizontalTitleGap: 10,
+                minVerticalPadding: 30,
+              ),
             ),
           );
         },
