@@ -2,8 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:plant_shop_app/login_or_register_page.dart';
 import 'firebase_options.dart';
-import 'package:plant_shop_app/login_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -11,10 +11,12 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-    MaterialApp(
-      home: LoginPage(),
-      theme: ThemeData(primarySwatch: Colors.lightGreen),
-      debugShowCheckedModeBanner: false,
-    ),
+    Builder(builder: (context) {
+      return MaterialApp(
+        home: LoginOrRegisterPage(),
+        theme: ThemeData(primarySwatch: Colors.lightGreen),
+        debugShowCheckedModeBanner: false,
+      );
+    }),
   );
 }
