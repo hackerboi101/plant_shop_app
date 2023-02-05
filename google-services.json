@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "1006901437819",
+    "project_id": "plant-shop-app-3",
+    "storage_bucket": "plant-shop-app-3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1006901437819:android:133efe9643d97aa2dc09de",
+        "android_client_info": {
+          "package_name": "com.example.plant_shop_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1006901437819-5j8qoq7ts2fa5c2naicu9cdnf0vtn7vt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBfDlkpG2cpbyWmGUeqkTeEdndpgM9nt_o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1006901437819-5j8qoq7ts2fa5c2naicu9cdnf0vtn7vt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1006901437819-kg69g8dkg4lvte7s5bdv50ckenpm1cfn.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.plantShopApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
