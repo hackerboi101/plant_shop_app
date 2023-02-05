@@ -41,6 +41,7 @@ dependencies:
   cloud_firestore: ^4.3.1
   firebase_database: ^10.0.9
   firebase_storage: ^11.0.10
+  firebase_auth: ^4.2.5
 
 dev_dependencies:
   flutter_test:
@@ -62,6 +63,19 @@ flutter:
     - assets/plant1.jpg
     - assets/plant2.jpg
     - assets/plant3.jpg
+    - assets/plant4.jpg
+    - assets/plant5.jpg
+    - assets/plant6.jpg
+    - assets/plant7.jpg
+    - assets/plant8.jpg
+    - assets/plant9.jpg
+    - assets/plant10.jpg
+    - assets/plant11.jpg
+    - assets/plant12.jpg
+    - assets/plant13.jpg
+    - assets/plant14.jpg
+    - assets/plant15.jpg
+    - assets/plant16.jpg
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in

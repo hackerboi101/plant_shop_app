@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:plant_shop_app/description_page.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'firebase_options.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,7 +14,7 @@ void main() async {
   runApp(
     MaterialApp(
       home: HomePage(),
-      theme: ThemeData(primarySwatch: Colors.green),
+      theme: ThemeData(primarySwatch: Colors.lightGreen),
       debugShowCheckedModeBanner: false,
     ),
   );
@@ -55,20 +56,80 @@ class HomePage extends StatelessWidget {
     Plant(
       name: 'Plant 4',
       description: 'Description of plant 4',
-      price: 30.0,
+      price: 40.0,
       image: 'assets/plant4.jpg',
     ),
     Plant(
       name: 'Plant 5',
       description: 'Description of plant 5',
-      price: 30.0,
+      price: 50.0,
       image: 'assets/plant5.jpg',
     ),
     Plant(
       name: 'Plant 6',
       description: 'Description of plant 6',
-      price: 30.0,
+      price: 60.0,
       image: 'assets/plant6.jpg',
+    ),
+    Plant(
+      name: 'Plant 7',
+      description: 'Description of plant 7',
+      price: 20.0,
+      image: 'assets/plant7.jpg',
+    ),
+    Plant(
+      name: 'Plant 8',
+      description: 'Description of plant 8',
+      price: 30.0,
+      image: 'assets/plant8.jpg',
+    ),
+    Plant(
+      name: 'Plant 9',
+      description: 'Description of plant 9',
+      price: 20.0,
+      image: 'assets/plant9.jpg',
+    ),
+    Plant(
+      name: 'Plant 10',
+      description: 'Description of plant 10',
+      price: 40.0,
+      image: 'assets/plant10.jpg',
+    ),
+    Plant(
+      name: 'Plant 11',
+      description: 'Description of plant 11',
+      price: 50.0,
+      image: 'assets/plant11.jpg',
+    ),
+    Plant(
+      name: 'Plant 12',
+      description: 'Description of plant 12',
+      price: 10.0,
+      image: 'assets/plant12.jpg',
+    ),
+    Plant(
+      name: 'Plant 13',
+      description: 'Description of plant 13',
+      price: 60.0,
+      image: 'assets/plant13.jpg',
+    ),
+    Plant(
+      name: 'Plant 14',
+      description: 'Description of plant 14',
+      price: 20.0,
+      image: 'assets/plant14.jpg',
+    ),
+    Plant(
+      name: 'Plant 15',
+      description: 'Description of plant 15',
+      price: 50.0,
+      image: 'assets/plant15.jpg',
+    ),
+    Plant(
+      name: 'Plant 16',
+      description: 'Description of plant 16',
+      price: 30.0,
+      image: 'assets/plant16.jpg',
     ),
   ];
 
