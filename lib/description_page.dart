@@ -16,11 +16,19 @@ class DescriptionPage extends StatelessWidget {
       ),
       body: Column(
         children: [
-          Image.asset(
-            plant.image,
-            height: 200,
-            width: double.infinity,
-            fit: BoxFit.cover,
+          Container(
+            height: 500.0,
+            width: 500.0,
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(plant.image),
+                fit: BoxFit.cover,
+              ),
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(40),
+                topRight: Radius.circular(40),
+              ),
+            ),
           ),
           Container(
             padding: EdgeInsets.all(10),
@@ -40,7 +48,7 @@ class DescriptionPage extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Text('Price: \$${plant.price}'),
+                Text('Price: ${plant.price} Taka'),
                 SizedBox(
                   height: 10,
                 ),
