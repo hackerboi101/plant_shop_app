@@ -76,6 +76,8 @@ flutter:
     - assets/plant14.jpg
     - assets/plant15.jpg
     - assets/plant16.jpg
+    - lib/images/apple.png
+    - lib/images/google.png
 
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
