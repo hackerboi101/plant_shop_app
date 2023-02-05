@@ -52,6 +52,24 @@ class HomePage extends StatelessWidget {
       price: 30.0,
       image: 'assets/plant3.jpg',
     ),
+    Plant(
+      name: 'Plant 4',
+      description: 'Description of plant 4',
+      price: 30.0,
+      image: 'assets/plant4.jpg',
+    ),
+    Plant(
+      name: 'Plant 5',
+      description: 'Description of plant 5',
+      price: 30.0,
+      image: 'assets/plant5.jpg',
+    ),
+    Plant(
+      name: 'Plant 6',
+      description: 'Description of plant 6',
+      price: 30.0,
+      image: 'assets/plant6.jpg',
+    ),
   ];
 
   HomePage({super.key});
@@ -90,8 +108,21 @@ class HomePage extends StatelessWidget {
                   ListTile(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(40)),
-                    title: Text(plants[index].name),
-                    subtitle: Text(plants[index].description),
+                    title: Center(
+                      child: Text(
+                        plants[index].name,
+                        style: TextStyle(
+                            fontSize: 20,
+                            fontWeight: FontWeight.bold,
+                            color: Color.fromARGB(255, 2, 42, 5)),
+                      ),
+                    ),
+                    subtitle: Center(
+                      child: Text(
+                        plants[index].description,
+                        style: TextStyle(color: Color.fromARGB(255, 2, 42, 5)),
+                      ),
+                    ),
                     tileColor: Colors.lightGreen[200],
                     onTap: () {
                       Navigator.push(

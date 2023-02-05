@@ -24,10 +24,7 @@ class DescriptionPage extends StatelessWidget {
                 image: AssetImage(plant.image),
                 fit: BoxFit.cover,
               ),
-              borderRadius: BorderRadius.only(
-                topLeft: Radius.circular(40),
-                topRight: Radius.circular(40),
-              ),
+              borderRadius: BorderRadius.circular(40),
             ),
           ),
           Container(
@@ -39,16 +36,23 @@ class DescriptionPage extends StatelessWidget {
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
+                    color: Colors.green[900],
                   ),
                 ),
                 SizedBox(
                   height: 10,
                 ),
-                Text(plant.description),
+                Text(
+                  plant.description,
+                  style: TextStyle(color: Colors.green[900]),
+                ),
                 SizedBox(
                   height: 10,
                 ),
-                Text('Price: ${plant.price} Taka'),
+                Text(
+                  'Price: ${plant.price} Taka',
+                  style: TextStyle(color: Colors.green[900]),
+                ),
                 SizedBox(
                   height: 10,
                 ),
