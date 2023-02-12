@@ -1,10 +1,13 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, prefer_const_literals_to_create_immutables, prefer_const_constructors, unused_element, unused_local_variable
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_shop_app/components/my_button.dart';
 import 'package:plant_shop_app/components/my_textfield.dart';
 import 'package:plant_shop_app/components/square_tile.dart';
+import 'package:plant_shop_app/home_page.dart';
+import 'package:plant_shop_app/login_or_register_page.dart';
+import 'package:plant_shop_app/services/auth_service.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -18,25 +21,43 @@ class _LoginPageState extends State<LoginPage> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  Future<dynamic> _nav(BuildContext context) {
+    return Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
+  }
+
+  Future<dynamic> _navlog(BuildContext context) {
+    return Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoginOrRegisterPage()),
+    );
+  }
+
   void signUserIn() async {
     showDialog(
       context: context,
       builder: (context) {
-        return const Center(
+        return Center(
           child: CircularProgressIndicator(),
         );
       },
     );
 
     try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+      final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(
         email: emailController.text,
         password: passwordController.text,
       );
-      Navigator.pop(context);
     } on FirebaseAuthException catch (e) {
-      Navigator.pop(context);
-      showErrorMessage(e.code);
+      if (e.code == 'user-not-found') {
+        showErrorMessage(e.code);
+      } else if (e.code == 'wrong-password') {
+        showErrorMessage(e.code);
+      } else {
+        return _nav(context);
+      }
     }
   }
 
@@ -140,10 +161,11 @@ class _LoginPageState extends State<LoginPage> {
                 const SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    SquareTile(imagePath: 'lib/images/google.png'),
-                    SizedBox(width: 25),
-                    SquareTile(imagePath: 'lib/images/apple.png')
+                  children: [
+                    SquareTile(
+                      onTap: () => AuthService().signinwithgoogle(),
+                      imagePath: 'lib/images/google.png',
+                    ),
                   ],
                 ),
                 const SizedBox(height: 50),

@@ -1,10 +1,12 @@
-// ignore_for_file: use_build_context_synchronously
+// ignore_for_file: use_build_context_synchronously, prefer_const_constructors, unused_local_variable
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_shop_app/components/my_button.dart';
 import 'package:plant_shop_app/components/my_textfield.dart';
 import 'package:plant_shop_app/components/square_tile.dart';
+import 'package:plant_shop_app/home_page.dart';
+import 'package:plant_shop_app/services/auth_service.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -30,19 +32,27 @@ class _RegisterPageState extends State<RegisterPage> {
     );
 
     try {
-      if (passwordController.text == confirmPasswordController.text) {
-        await FirebaseAuth.instance.createUserWithEmailAndPassword(
-          email: emailController.text,
-          password: passwordController.text,
-        );
-      } else {
-        showErrorMessage("Passwords don't match!");
-      }
-      Navigator.pop(context);
+      final credential =
+          await FirebaseAuth.instance.createUserWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
     } on FirebaseAuthException catch (e) {
-      Navigator.pop(context);
-      showErrorMessage(e.code);
+      if (e.code == 'weak-password') {
+        showErrorMessage(e.code);
+      } else if (e.code == 'email-already-in-use') {
+        showErrorMessage(e.code);
+      } else {
+        return _nav(context);
+      }
     }
+  }
+
+  Future<dynamic> _nav(BuildContext context) {
+    return Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => HomePage()),
+    );
   }
 
   void showErrorMessage(String message) {
@@ -138,10 +148,11 @@ class _RegisterPageState extends State<RegisterPage> {
                 const SizedBox(height: 50),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
-                  children: const [
-                    SquareTile(imagePath: 'lib/images/google.png'),
-                    SizedBox(width: 25),
-                    SquareTile(imagePath: 'lib/images/apple.png')
+                  children: [
+                    SquareTile(
+                      onTap: () => AuthService().signinwithgoogle(),
+                      imagePath: 'lib/images/google.png',
+                    ),
                   ],
                 ),
                 const SizedBox(height: 50),

@@ -1,7 +1,9 @@
-// ignore_for_file: prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 
 import 'package:flutter/material.dart';
 import 'package:plant_shop_app/description_page.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:plant_shop_app/login_or_register_page.dart';
 
 class Plant {
   final String name;
@@ -16,7 +18,26 @@ class Plant {
       required this.image});
 }
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
+  HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  Future<dynamic> _navlog(BuildContext context) {
+    return Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoginOrRegisterPage()),
+    );
+  }
+
+  void signUserOut() {
+    FirebaseAuth.instance.signOut();
+    _navlog(context);
+  }
+
   final List<Plant> plants = [
     Plant(
       name: 'Plant 1',
@@ -116,13 +137,17 @@ class HomePage extends StatelessWidget {
     ),
   ];
 
-  HomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Plant Shop'),
+        actions: [
+          IconButton(
+            onPressed: signUserOut,
+            icon: Icon(Icons.logout),
+          )
+        ],
       ),
       body: ListView.builder(
         itemCount: plants.length,

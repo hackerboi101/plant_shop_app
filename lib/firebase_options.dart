@@ -4,6 +4,16 @@ import 'package:firebase_core/firebase_core.dart' show FirebaseOptions;
 import 'package:flutter/foundation.dart'
     show defaultTargetPlatform, kIsWeb, TargetPlatform;
 
+/// Default [FirebaseOptions] for use with your Firebase apps.
+///
+/// Example:
+/// ```dart
+/// import 'firebase_options.dart';
+/// // ...
+/// await Firebase.initializeApp(
+///   options: DefaultFirebaseOptions.currentPlatform,
+/// );
+/// ```
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
@@ -34,41 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyD2PdKMjhLDsQZXwF-Qnp9tuTjfVqwwv9I',
-    appId: '1:637905690799:web:17b30bbb335e097c6fb45a',
-    messagingSenderId: '637905690799',
-    projectId: 'authtutorial-de80c',
-    authDomain: 'authtutorial-de80c.firebaseapp.com',
-    storageBucket: 'authtutorial-de80c.appspot.com',
+    apiKey: 'AIzaSyDjLpN-mwZkJT9Opu4lo4ixqqPdQTZBbxQ',
+    appId: '1:1006901437819:web:ee401ec81e2bd1ccdc09de',
+    messagingSenderId: '1006901437819',
+    projectId: 'plant-shop-app-3',
+    authDomain: 'plant-shop-app-3.firebaseapp.com',
+    storageBucket: 'plant-shop-app-3.appspot.com',
+    measurementId: 'G-71NY3XF9QR',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyA8d-FWDmv6E0QbtoRF6ih_ilZc-1Vj08M',
-    appId: '1:637905690799:android:e8bc54bf75db03016fb45a',
-    messagingSenderId: '637905690799',
-    projectId: 'authtutorial-de80c',
-    storageBucket: 'authtutorial-de80c.appspot.com',
+    apiKey: 'AIzaSyBfDlkpG2cpbyWmGUeqkTeEdndpgM9nt_o',
+    appId: '1:1006901437819:android:133efe9643d97aa2dc09de',
+    messagingSenderId: '1006901437819',
+    projectId: 'plant-shop-app-3',
+    storageBucket: 'plant-shop-app-3.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyADAlJVsAlvX4yekAxgd84NuU1-ALF0Lm0',
-    appId: '1:637905690799:ios:88f47a6f5de9318a6fb45a',
-    messagingSenderId: '637905690799',
-    projectId: 'authtutorial-de80c',
-    storageBucket: 'authtutorial-de80c.appspot.com',
-    iosClientId:
-        '637905690799-9shnm980f8q6vjk9rbq6eih4tfp1l7jg.apps.googleusercontent.com',
-    iosBundleId: 'com.example.modernlogintute',
+    apiKey: 'AIzaSyCjetZe2dt-Y9LRv0XzIvz72GD7PklvzrE',
+    appId: '1:1006901437819:ios:cb902a24fee34243dc09de',
+    messagingSenderId: '1006901437819',
+    projectId: 'plant-shop-app-3',
+    storageBucket: 'plant-shop-app-3.appspot.com',
+    iosClientId: '1006901437819-kg69g8dkg4lvte7s5bdv50ckenpm1cfn.apps.googleusercontent.com',
+    iosBundleId: 'com.example.plantShopApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyADAlJVsAlvX4yekAxgd84NuU1-ALF0Lm0',
-    appId: '1:637905690799:ios:88f47a6f5de9318a6fb45a',
-    messagingSenderId: '637905690799',
-    projectId: 'authtutorial-de80c',
-    storageBucket: 'authtutorial-de80c.appspot.com',
-    iosClientId:
-        '637905690799-9shnm980f8q6vjk9rbq6eih4tfp1l7jg.apps.googleusercontent.com',
-    iosBundleId: 'com.example.modernlogintute',
+    apiKey: 'AIzaSyCjetZe2dt-Y9LRv0XzIvz72GD7PklvzrE',
+    appId: '1:1006901437819:ios:cb902a24fee34243dc09de',
+    messagingSenderId: '1006901437819',
+    projectId: 'plant-shop-app-3',
+    storageBucket: 'plant-shop-app-3.appspot.com',
+    iosClientId: '1006901437819-kg69g8dkg4lvte7s5bdv50ckenpm1cfn.apps.googleusercontent.com',
+    iosBundleId: 'com.example.plantShopApp',
   );
 }

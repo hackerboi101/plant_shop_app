@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:plant_shop_app/login_or_register_page.dart';
+import 'package:plant_shop_app/auth_page.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -13,7 +13,7 @@ void main() async {
   runApp(
     Builder(builder: (context) {
       return MaterialApp(
-        home: LoginOrRegisterPage(),
+        home: AuthPage(),
         theme: ThemeData(primarySwatch: Colors.lightGreen),
         debugShowCheckedModeBanner: false,
       );
