@@ -81,7 +81,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[300],
+      backgroundColor: Colors.lightGreen[200],
       body: SafeArea(
         child: Center(
           child: SingleChildScrollView(
@@ -90,6 +90,7 @@ class _LoginPageState extends State<LoginPage> {
               children: [
                 const SizedBox(height: 50),
                 const Icon(
+                  color: Color.fromARGB(255, 2, 42, 5),
                   Icons.lock,
                   size: 100,
                 ),
@@ -97,7 +98,7 @@ class _LoginPageState extends State<LoginPage> {
                 Text(
                   'Welcome back you\'ve been missed!',
                   style: TextStyle(
-                    color: Colors.grey[700],
+                    color: Color.fromARGB(255, 2, 42, 5),
                     fontSize: 16,
                   ),
                 ),
@@ -121,7 +122,9 @@ class _LoginPageState extends State<LoginPage> {
                     children: [
                       Text(
                         'Forgot Password?',
-                        style: TextStyle(color: Colors.grey[600]),
+                        style: TextStyle(
+                          color: Color.fromARGB(255, 2, 42, 5),
+                        ),
                       ),
                     ],
                   ),
@@ -146,7 +149,9 @@ class _LoginPageState extends State<LoginPage> {
                         padding: const EdgeInsets.symmetric(horizontal: 10.0),
                         child: Text(
                           'Or continue with',
-                          style: TextStyle(color: Colors.grey[700]),
+                          style: TextStyle(
+                            color: Color.fromARGB(255, 2, 42, 5),
+                          ),
                         ),
                       ),
                       Expanded(
@@ -174,7 +179,9 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     Text(
                       'Not a member?',
-                      style: TextStyle(color: Colors.grey[700]),
+                      style: TextStyle(
+                        color: Color.fromARGB(255, 2, 42, 5),
+                      ),
                     ),
                     const SizedBox(width: 4),
                     GestureDetector(
