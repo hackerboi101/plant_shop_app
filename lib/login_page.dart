@@ -8,6 +8,7 @@ import 'package:plant_shop_app/components/square_tile.dart';
 import 'package:plant_shop_app/home_page.dart';
 import 'package:plant_shop_app/login_or_register_page.dart';
 import 'package:plant_shop_app/services/auth_service.dart';
+import 'package:plant_shop_app/components/textfield.dart';
 
 class LoginPage extends StatefulWidget {
   final Function()? onTap;
@@ -109,7 +110,7 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: false,
                 ),
                 const SizedBox(height: 10),
-                MyTextField(
+                ATextField(
                   controller: passwordController,
                   hintText: 'Password',
                   obscureText: true,

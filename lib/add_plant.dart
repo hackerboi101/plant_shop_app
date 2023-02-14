@@ -21,7 +21,6 @@ class _AddPlantState extends State<AddPlant> {
   final plantName = TextEditingController();
   final plantDescription = TextEditingController();
   final plantPrice = TextEditingController();
-  final plantImage = putFile(image);
 
   final storage = FirebaseStorage.instance;
   CollectionReference Plants = FirebaseFirestore.instance.collection('Plants');
@@ -45,13 +44,12 @@ class _AddPlantState extends State<AddPlant> {
 
   Future<void> addPlants() {
     return Plants.add({
-      'Plant Name': plantName,
-      'Plant Description': plantDescription,
-      'Plant Price': plantPrice,
-      'Plant Image': plantImage,
+      'Plant Name': plantName.text,
+      'Plant Description': plantDescription.text,
+      'Plant Price': plantPrice.text,
     })
         .then((value) => showMessage("Plant added successfully"))
-        .catchError((error) => showMessage("Plant couldn't be added."));
+        .catchError((error) => showMessage("Plant couldn't be added"));
   }
 
   XFile? image;
@@ -151,6 +149,7 @@ class _AddPlantState extends State<AddPlant> {
                 MyButton(
                   text: "Add Plant",
                   onTap: () {
+                    addPlants();
                     Navigator.push(
                       context,
                       MaterialPageRoute(

@@ -7,6 +7,7 @@ import 'package:plant_shop_app/components/my_textfield.dart';
 import 'package:plant_shop_app/components/square_tile.dart';
 import 'package:plant_shop_app/home_page.dart';
 import 'package:plant_shop_app/services/auth_service.dart';
+import 'package:plant_shop_app/components/textfield.dart';
 
 class RegisterPage extends StatefulWidget {
   final Function()? onTap;
@@ -103,13 +104,13 @@ class _RegisterPageState extends State<RegisterPage> {
                   obscureText: false,
                 ),
                 const SizedBox(height: 10),
-                MyTextField(
+                ATextField(
                   controller: passwordController,
                   hintText: 'Password',
                   obscureText: true,
                 ),
                 const SizedBox(height: 10),
-                MyTextField(
+                ATextField(
                   controller: confirmPasswordController,
                   hintText: 'Confirm Password',
                   obscureText: true,
