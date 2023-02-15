@@ -39,7 +39,7 @@ class _HomePageState extends State<HomePage> {
     _navlog(context);
   }
 
-  final List<Plant> plants = [];
+  late List<Plant> plants = [];
 
   void getPlantsData() async {
     final databaseReference = FirebaseFirestore.instance;
@@ -47,10 +47,10 @@ class _HomePageState extends State<HomePage> {
         await databaseReference.collection("Plants").get();
     plants = plantsSnapshot.docs
         .map((documentSnapshot) => Plant(
-              name: documentSnapshot.data['Plant Name'],
-              description: documentSnapshot.data['Plant Description'],
-              price: documentSnapshot.data['Plant Price'].toDouble(),
-              image: documentSnapshot.data['Plant Image'],
+              name: documentSnapshot.get("Plant Name"),
+              description: documentSnapshot.get("Plant Description"),
+              price: documentSnapshot.get("Plant Price").toDouble(),
+              image: documentSnapshot.get("Plant Image"),
             ))
         .toList();
   }
