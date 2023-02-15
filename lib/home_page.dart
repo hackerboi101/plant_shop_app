@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_constructors_in_immutables
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_shop_app/description_page.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -38,104 +39,21 @@ class _HomePageState extends State<HomePage> {
     _navlog(context);
   }
 
-  final List<Plant> plants = [
-    Plant(
-      name: 'Plant 1',
-      description: 'Description of plant 1',
-      price: 10.0,
-      image: 'assets/plant1.jpg',
-    ),
-    Plant(
-      name: 'Plant 2',
-      description: 'Description of plant 2',
-      price: 20.0,
-      image: 'assets/plant2.jpg',
-    ),
-    Plant(
-      name: 'Plant 3',
-      description: 'Description of plant 3',
-      price: 30.0,
-      image: 'assets/plant3.jpg',
-    ),
-    Plant(
-      name: 'Plant 4',
-      description: 'Description of plant 4',
-      price: 40.0,
-      image: 'assets/plant4.jpg',
-    ),
-    Plant(
-      name: 'Plant 5',
-      description: 'Description of plant 5',
-      price: 50.0,
-      image: 'assets/plant5.jpg',
-    ),
-    Plant(
-      name: 'Plant 6',
-      description: 'Description of plant 6',
-      price: 60.0,
-      image: 'assets/plant6.jpg',
-    ),
-    Plant(
-      name: 'Plant 7',
-      description: 'Description of plant 7',
-      price: 20.0,
-      image: 'assets/plant7.jpg',
-    ),
-    Plant(
-      name: 'Plant 8',
-      description: 'Description of plant 8',
-      price: 30.0,
-      image: 'assets/plant8.jpg',
-    ),
-    Plant(
-      name: 'Plant 9',
-      description: 'Description of plant 9',
-      price: 20.0,
-      image: 'assets/plant9.jpg',
-    ),
-    Plant(
-      name: 'Plant 10',
-      description: 'Description of plant 10',
-      price: 40.0,
-      image: 'assets/plant10.jpg',
-    ),
-    Plant(
-      name: 'Plant 11',
-      description: 'Description of plant 11',
-      price: 50.0,
-      image: 'assets/plant11.jpg',
-    ),
-    Plant(
-      name: 'Plant 12',
-      description: 'Description of plant 12',
-      price: 10.0,
-      image: 'assets/plant12.jpg',
-    ),
-    Plant(
-      name: 'Plant 13',
-      description: 'Description of plant 13',
-      price: 60.0,
-      image: 'assets/plant13.jpg',
-    ),
-    Plant(
-      name: 'Plant 14',
-      description: 'Description of plant 14',
-      price: 20.0,
-      image: 'assets/plant14.jpg',
-    ),
-    Plant(
-      name: 'Plant 15',
-      description: 'Description of plant 15',
-      price: 50.0,
-      image: 'assets/plant15.jpg',
-    ),
-    Plant(
-      name: 'Plant 16',
-      description: 'Description of plant 16',
-      price: 30.0,
-      image: 'assets/plant16.jpg',
-    ),
-  ];
+  final List<Plant> plants = [];
+
+  void getPlantsData() async {
+    final databaseReference = FirebaseFirestore.instance;
+    QuerySnapshot plantsSnapshot =
+        await databaseReference.collection("Plants").get();
+    plants = plantsSnapshot.docs
+        .map((documentSnapshot) => Plant(
+              name: documentSnapshot.data['Plant Name'],
+              description: documentSnapshot.data['Plant Description'],
+              price: documentSnapshot.data['Plant Price'].toDouble(),
+              image: documentSnapshot.data['Plant Image'],
+            ))
+        .toList();
+  }
 
   @override
   Widget build(BuildContext context) {
