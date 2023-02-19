@@ -11,6 +11,7 @@ class DescriptionPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.lightGreen[100],
       appBar: AppBar(
         title: Text(plant.name),
       ),
@@ -21,7 +22,7 @@ class DescriptionPage extends StatelessWidget {
             width: 500.0,
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(plant.image),
+                image: NetworkImage(plant.image),
                 fit: BoxFit.cover,
               ),
               borderRadius: BorderRadius.circular(40),

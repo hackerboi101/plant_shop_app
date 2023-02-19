@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_constructors, sized_box_for_whitespace, prefer_const_literals_to_create_immutables, unused_import, must_be_immutable, non_constant_identifier_names
 
+import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:plant_shop_app/components/my_button.dart';
@@ -22,7 +23,6 @@ class _AddPlantState extends State<AddPlant> {
   final plantDescription = TextEditingController();
   final plantPrice = TextEditingController();
 
-  final storage = FirebaseStorage.instance;
   CollectionReference Plants = FirebaseFirestore.instance.collection('Plants');
 
   void showMessage(String message) {
@@ -42,11 +42,19 @@ class _AddPlantState extends State<AddPlant> {
     );
   }
 
-  Future<void> addPlants() {
+  Future<void> addPlants() async {
+    final storage = FirebaseStorage.instance;
+    final imageRef =
+        storage.ref().child('plant_images/${DateTime.now().toString()}');
+    final uploadTask = imageRef.putFile(File(image!.path));
+    final snapshot = await uploadTask.whenComplete(() {});
+    final imageUrl = await snapshot.ref.getDownloadURL();
+
     return Plants.add({
       'Plant Name': plantName.text,
       'Plant Description': plantDescription.text,
       'Plant Price': plantPrice.text,
+      'Image URL': imageUrl,
     })
         .then((value) => showMessage("Plant added successfully"))
         .catchError((error) => showMessage("Plant couldn't be added"));
